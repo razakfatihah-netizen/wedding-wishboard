@@ -99,10 +99,10 @@ async function fetchWishes() {
     const rows = data.split('\n').slice(1); // skip header
     const wishes = rows.map(row => {
       const cols = row.split(',');
-      return {
-        name: cols[0]?.trim().replace(/"/g, ''),
-        message: cols[1]?.trim().replace(/"/g, '')
-      };
+return {
+  name: cols[1]?.trim().replace(/"/g, ''),      // Column B = Nama
+  message: cols[2]?.trim().replace(/"/g, '')    // Column C = Ucapan & Doa
+};
     }).filter(w => w.name && w.message);
 
     const container = document.getElementById('wish-container');
